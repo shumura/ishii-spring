@@ -1,0 +1,656 @@
+@charset "UTF-8";
+/*mixin*/
+/*colors*/
+/*base
+----------------------*/
+body {
+  font-family: “Times New Roman”, “游明朝”, “Yu Mincho”, “游明朝体”, “YuMincho”, “ヒラギノ明朝 Pro W3”, “Hiragino Mincho Pro”, “HiraMinProN-W3”, “HGS明朝E”, “ＭＳ Ｐ明朝”, “MS PMincho”, serif;
+  box-sizing: border-box;
+  line-height: 32px;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*header
+-----------------------*/
+header {
+  position: fixed;
+  background-color: #FFFFFF;
+  width: 100%;
+  height: 80px;
+  z-index: 5;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+header h2::before {
+  content: "";
+  display: inline-block;
+  width: 34px;
+  height: 34px;
+  background: url("../images/logo02.png") top left/cover no-repeat;
+  margin-right: 10px;
+  z-index: 6;
+}
+
+header .top {
+  color: #000000;
+}
+
+.header-container {
+  display: flex;
+  height: 100%;
+}
+
+.left-header {
+  display: flex;
+  padding-top: 20px;
+  padding-left: 20px;
+}
+
+@media only screen and (max-width: 680px) {
+  .left-header {
+    display: block;
+    padding-top: 5px;
+    padding-left: 5px;
+  }
+}
+
+.left-header h2 {
+  font-size: 28px;
+  color: #000000;
+  padding-left: 20px;
+  height: 34px;
+}
+
+.left-header ul {
+  display: flex;
+  margin-left: 120px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .left-header ul {
+    margin-left: 60px;
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  .left-header ul {
+    margin-left: 10px;
+  }
+}
+
+.left-header ul li {
+  margin-right: 30px;
+  line-height: 40px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .left-header ul li {
+    margin-right: 15px;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .left-header ul li {
+    margin-right: 15px;
+  }
+}
+
+.left-header ul li:last-of-type {
+  margin-right: 0;
+}
+
+.left-header ul a {
+  color: #000000;
+}
+
+.right-header {
+  margin-top: 13px;
+  margin-bottom: 13px;
+  position: absolute;
+  right: 0;
+  padding-right: 20px;
+}
+
+@media only screen and (max-width: 680px) {
+  .right-header {
+    padding-right: 3px;
+  }
+}
+
+.right-header .btn-a {
+  display: flex;
+  padding: 16px 37px;
+  background-color: #978F10;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 680px) {
+  .right-header .btn-a {
+    padding: 5px 8px;
+  }
+}
+
+.right-header .btn-a img {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  padding-right: 10px;
+}
+
+.right-header .btn-a p {
+  line-height: 22px;
+  color: #FFFFFF;
+}
+
+/*modalArea
+------------------*/
+.modalArea {
+  visibility: hidden;
+  /* displayではなくvisibility */
+  opacity: 0;
+  position: fixed;
+  z-index: 10;
+  /* サイトによってここの数値は調整 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: .4s;
+}
+
+.modalBg {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(30, 30, 30, 0.9);
+}
+
+.modalWrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  max-width: 500px;
+  padding: 10px 30px;
+  background-color: #fff;
+}
+
+.modalContents h1 {
+  font-size: 20px;
+  padding-top: 19px;
+  padding-bottom: 30px;
+  text-align: center;
+  border-bottom: 1px solid #E7E7E7;
+}
+
+@media only screen and (max-width: 1024px) {
+  .modalContents h1 {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+}
+
+.modalContents p {
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .modalContents p {
+    padding-top: 2px;
+    padding-bottom: 2px;
+  }
+}
+
+.modalContents p:first-of-type {
+  padding-top: 35.5px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .modalContents p:first-of-type {
+    padding-top: 2px;
+  }
+}
+
+.modalContents input {
+  display: inline-block;
+  width: 99%;
+  line-height: 24px;
+}
+
+.modalContents select {
+  display: inline-block;
+  width: 100%;
+  height: 30px;
+  padding: 0 4px;
+}
+
+.modalContents .submit {
+  text-align: center;
+  margin-bottom: 90px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .modalContents .submit {
+    margin-bottom: 20px;
+  }
+}
+
+.modalContents a {
+  display: inline-block;
+  padding: 20px 44px;
+  border: 1px solid #707070;
+  margin-top: 75px;
+  padding: 13px 67px;
+  margin-top: 64px;
+  color: #000000;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media only screen and (max-width: 1024px) {
+  .modalContents a {
+    margin-top: 10px;
+    padding: 5px 11px;
+  }
+}
+
+.closeModal {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  cursor: pointer;
+}
+
+/*modal表示
+  -----------------*/
+.is-show {
+  /* モーダル表示用クラス */
+  visibility: visible;
+  opacity: 1;
+}
+
+/*fv
+  ----------------*/
+.fv {
+  background-image: url(../images/onsen-header.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 580px;
+  width: 100%;
+}
+
+.fv h2 {
+  font-size: 34px;
+  color: #FFFFFF;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+}
+
+/*breadCrumb
+  -----------------*/
+.breadCrumb {
+  padding-top: 36px;
+  padding-bottom: 98px;
+}
+
+.breadCrumb ul {
+  display: flex;
+}
+
+.breadCrumb li {
+  margin-right: 10px;
+}
+
+.breadCrumb a {
+  color: #000000;
+}
+
+.breadCrumb li:nth-child(2)::before {
+  content: ">";
+  margin-right: 10px;
+}
+
+/*spring-content
+  ------------------*/
+.spring-wrapper {
+  max-width: 1180px;
+  margin: 0 auto;
+  height: 1500px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .spring-wrapper {
+    max-width: 100%;
+    padding: 0 5px;
+  }
+}
+
+.spring-wrapper h3 {
+  font-size: 16px;
+  text-align: center;
+}
+
+.spring-wrapper .spring1 {
+  margin-top: 78px;
+  position: relative;
+}
+
+.spring-wrapper .spring1 img {
+  position: absolute;
+  z-index: 4;
+}
+
+@media only screen and (max-width: 1024px) {
+  .spring-wrapper .spring1 img {
+    width: 40%;
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  .spring-wrapper .spring1 img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+  }
+}
+
+.spring-wrapper .spring1 .room-feature1 {
+  position: absolute;
+  left: 367px;
+  top: 57px;
+  width: 813px;
+  height: 381px;
+  background-image: url(../images/bg.jpg);
+  z-index: 0;
+}
+
+@media only screen and (max-width: 1024px) {
+  .spring-wrapper .spring1 .room-feature1 {
+    left: 200px;
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  .spring-wrapper .spring1 .room-feature1 {
+    left: 0;
+    top: 100px;
+    width: 100%;
+  }
+}
+
+.spring-wrapper .spring1 .room-feature1 h4 {
+  font-size: 24px;
+  padding-top: 60px;
+  padding-left: 238px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .spring-wrapper .spring1 .room-feature1 h4 {
+    padding-left: 220px;
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  .spring-wrapper .spring1 .room-feature1 h4 {
+    padding-left: 5px;
+    padding-top: 30px;
+  }
+}
+
+.spring-wrapper .spring1 .room-feature1 h5 {
+  font-size: 16px;
+  padding-top: 52px;
+  padding-left: 238px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .spring-wrapper .spring1 .room-feature1 h5 {
+    padding-left: 220px;
+    padding-top: 30px;
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  .spring-wrapper .spring1 .room-feature1 h5 {
+    padding-left: 5px;
+    padding-top: 10px;
+  }
+}
+
+.spring-wrapper .spring2 {
+  position: relative;
+}
+
+.spring-wrapper .spring2 .img2 {
+  position: absolute;
+  right: 0;
+  top: 522px;
+  z-index: 4;
+}
+
+@media only screen and (max-width: 1024px) {
+  .spring-wrapper .spring2 .img2 {
+    width: 40%;
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  .spring-wrapper .spring2 .img2 {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+  }
+}
+
+.spring-wrapper .spring2 .room-feature2 {
+  position: absolute;
+  left: 0;
+  top: 579px;
+  width: 813px;
+  height: 381px;
+  background-image: url(../images/bg.jpg);
+  z-index: 0;
+}
+
+@media only screen and (max-width: 1024px) {
+  .spring-wrapper .spring2 .room-feature2 {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  .spring-wrapper .spring2 .room-feature2 {
+    width: 100%;
+  }
+}
+
+.spring-wrapper .spring2 .room-feature2 h4 {
+  font-size: 24px;
+  padding-left: 60px;
+  padding-top: 60px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .spring-wrapper .spring2 .room-feature2 h4 {
+    padding-left: 20px;
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  .spring-wrapper .spring2 .room-feature2 h4 {
+    padding-left: 5px;
+  }
+}
+
+.spring-wrapper .spring2 .room-feature2 h5 {
+  font-size: 16px;
+  padding-left: 60px;
+  padding-top: 52px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .spring-wrapper .spring2 .room-feature2 h5 {
+    padding-left: 20px;
+    padding-right: 90px;
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  .spring-wrapper .spring2 .room-feature2 h5 {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
+/*effect
+-------------------*/
+.effect {
+  height: 500px;
+}
+
+@media only screen and (max-width: 680px) {
+  .effect {
+    height: 550px;
+  }
+}
+
+.effect .effect-wrapper {
+  max-width: 1180px;
+  margin: 0 auto;
+  border-top: 1px solid #E7E7E7;
+  border-bottom: 1px solid #E7E7E7;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .effect .effect-wrapper {
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+}
+
+.effect .effect-wrapper h3 {
+  font-size: 26px;
+  text-align: center;
+  padding-bottom: 65px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .effect .effect-wrapper h3 {
+    padding-bottom: 30px;
+  }
+}
+
+.effect .effect-wrapper .table {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.effect .effect-wrapper .table th {
+  font-size: 15px;
+  text-align: left;
+  padding: 15px 0;
+  border-top: 1px solid #E7E7E7;
+}
+
+.effect .effect-wrapper .table .th1 {
+  width: 220px;
+}
+
+@media only screen and (max-width: 680px) {
+  .effect .effect-wrapper .table .th1 {
+    width: 30%;
+  }
+}
+
+/*company
+  --------------------*/
+.company {
+  position: static;
+  height: 522px;
+  background-image: url(../images/bg3.jpg);
+}
+
+.company .logo {
+  text-align: center;
+  padding-top: 60px;
+}
+
+.company h2 {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 32px;
+}
+
+.company .link {
+  display: flex;
+  justify-content: center;
+  padding-top: 64px;
+}
+
+.company .link p {
+  padding-right: 23px;
+  -ms-writing-mode: tb-rl;
+  writing-mode: vertical-rl;
+}
+
+.company .link p:last-of-type {
+  padding-right: 0;
+}
+
+.company .link a {
+  font-size: 18px;
+  color: #000000;
+}
+
+.company .address {
+  padding-top: 72px;
+  display: flex;
+  justify-content: center;
+}
+
+.company .address p {
+  padding-right: 21px;
+}
+
+.company .address p:last-of-type {
+  padding-right: 0;
+}
+
+.company .number {
+  padding-top: 23px;
+  display: flex;
+  justify-content: center;
+}
+
+.company .number p {
+  padding-right: 21px;
+}
+
+.company .number p:last-of-type {
+  padding-right: 0;
+}
+
+/*footer
+----------------*/
+footer {
+  height: 60px;
+  background-color: #000000;
+}
+
+footer p {
+  color: #FFFFFF;
+  text-align: center;
+  padding-top: 15px;
+  font-size: 12px;
+}

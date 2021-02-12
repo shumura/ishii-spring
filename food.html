@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <title>石井花壇 | 温海温泉旅館【公式サイト】</title>
+            <meta name="description" content="日本古来の素材と現代的表現を併せ持つ温泉旅館、石井花壇。 伝統的「和」の息づく空間で、至極のひとときをお過ごしください。">
+            <meta name="robots" content="noindex">
+            <meta property="og:url" content="https://shumura.github.io/your-coding/">
+            <meta property="og:type" content="website">
+            <meta property="og:title" content="ユアコーディング">
+            <meta property="og:description" content="コーディングの手間を最小に。利益は最大に。">
+            <meta property="og:image" content="http://murashu.html.xdomain.jp/images/ogp.png">
+    
+            <!--css-->
+            <link rel="icon" type="image/ico" href="images/favicon.ico">
+            <link rel="stylesheet" href="./css/reset.css">
+            <link rel="stylesheet" href="./css/food.css">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+            <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+            <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+            <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+                
+            
+        </head>
+    </head>
+
+    <body>
+        <header>
+            <div class="header-container">
+                <div class="left-header">    
+                    <h2><a class="top" href="/index.html">石 井 花 壇</a></h2>
+                    <ul>
+                        <li><a href="/room.html">お部屋</a></li>
+                        <li><a href="#">お料理</a></li>
+                        <li><a href="">温泉</a></li>
+                    </ul>
+                </div>
+                <div class="right-header">
+                    <a class="btn" id="openModal">
+                        <div class="btn-a">
+                            <img src="images/calender.png" alt="">
+                            <p>宿泊予約</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </header>
+    
+    <!--modalArea-->
+    <section id="modalArea" class="modalArea">
+        <div id="modalBg" class="modalBg"></div>
+        <div class="modalWrapper">
+            <div class="modalContents">
+                <h1>宿泊予約</h1>
+                    <p>お名前</p>
+                    <input type="text" placeholder="例：石井正悟">
+                    <p>メールアドレス</p>
+                    <input type="text" placeholder="例：Example@example.com">
+                    <p>ご希望プラン（空いているプランのみ表示されます）</p>
+                    <select name="plan" id="" siza="1">
+                        <option value="">①【期間限定】海辺の四季旬彩、贅沢美味懐石プラン</option>
+                        <option value="">②平日に優雅に楽しむ、特別宿泊プラン</option>
+                        <option value="">③絶景貸切露天と個室会席を満喫できるファミリープラン</option>
+                    </select>
+                    <p>日時選択</p>
+                    <input class="flatpickr" type="text" placeholder="Select Date.." readonly="readonly">
+                    <div class="submit">
+                        <a href="">返信する</a>
+                    </div>                       
+                <div id="closeModal" class="closeModal">
+                    ×
+                </div>
+            </div>
+            
+        </div>
+    </section>
+    <!--fv-->
+    <section class="fv" data-aos="fade-up">
+        <h2>お料理</h2>
+    </section>
+
+    <!--food-content-->
+    <section class="food-content">
+        <div class="food-wrapper">
+            <div class="breadCrumb">
+                <ul>
+                    <li><a href="/index.html">トップ</a></li>
+                    <li>お料理</li>
+                </ul>
+            </div>
+
+            <h3 data-aos="fade-up">地元熱海の市場で仕入れた食材のみを使った食材をふんだんに使い、<br>
+                大将の技が光る「熱海料理」<br>
+                四季ごと、日ごとに変化する味わいを、どうぞご堪能ください。</h3>
+            <div class="room1">
+                <img class="img1" src="./images/menu01.jpg" width="525" height="300" alt="" data-aos="fade-up">
+                <div class="room-feature1">
+                    <h4 data-aos="fade-up">地元食材にこだわった会席料理</h4>
+                    <h5 data-aos="fade-up">みずみずしくほのかに甘い野菜、新鮮で味に深みがある魚介類、肉類。<br>
+                        旬の素材をそのままに生かす、経験に裏打ちされた確かな技。<br>
+                        四季ごと、日ごとに変化する味わいを、どうぞご堪能ください。</h5>
+                </div>
+            </div>
+            <div class="room2">
+                <img class="img2" src="./images/menu02.jpg" width="525" height="300" alt="" data-aos="fade-up">
+                <div class="room-feature2">
+                    <h4 data-aos="fade-up">熱海の漁港で目利きの品を</h4>
+                    <h5 data-aos="fade-up">石井花壇でお出しする料理はすべて料理長である大将の目利きで、<br>
+                        熱海の魚市場でその日のうちに仕入れたものを使用しております。<br>
+                        日本海の宝玉を十分にお楽しみください。</h5>
+                </div>
+            </div>
+            <div class="room3">
+                <img class="img3" src="./images/menu03.jpg" width="525" height="300" alt="" data-aos="fade-up">
+                <div class="room-feature3">
+                    <h4 data-aos="fade-up">食材が一流、職人も一流</h4>
+                    <h5 data-aos="fade-up">石井花壇の料理人は料亭で20年経験を積んだものばかり。<br>
+                        その時の最も旬な食材を、最高の調理でお届けします。<br>
+                        また、お料理への細かいご要望にもお答えできますので、 お気軽にお申し付けください。</h5>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--company-->
+    <section class="company">
+        <div class="link">
+            <p><a href="/room.html">お 部 屋</a></p>
+            <p><a href="#">お 料 理</a></p>
+            <p><a href="">温 泉</a></p>
+        </div>
+        <div class="logo">
+            <img src="images/logo02.png" width="40" height="40" alt="">
+        </div>
+        <h2>石井花壇</h2>
+        <div class="address">
+            <p>〒000-0000</p>
+            <p>山形県鶴岡市xxxxxxxxxxx</p>
+        </div>
+        <div class="number">
+            <p>TEL.000-0000-0000</p>
+            <p>FAX.00-0000-0000</p>
+        </div>
+        
+    </section>
+
+    <!--footer-->
+    <footer>
+        <p>Copyright © 石井花壇 All Rights Reserved.</p>
+    </footer>
+    
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/script.js "></script>
+    </body>

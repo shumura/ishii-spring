@@ -1,0 +1,518 @@
+@import "_mixin.scss";
+@import "_module.scss"; 
+
+@mixin sp($width-media: 680px){
+    @media only screen and (max-width: $width-media){
+        @content;
+    }
+}
+
+@mixin tb($width-media: 1024px){
+    @media only screen and (max-width: $width-media){
+        @content;
+    }
+}
+/*base
+----------------------*/
+body{
+    font-family: “Times New Roman”, “游明朝”, “Yu Mincho”, “游明朝体”, “YuMincho”, “ヒラギノ明朝 Pro W3”, “Hiragino Mincho Pro”, “HiraMinProN-W3”, “HGS明朝E”, “ＭＳ Ｐ明朝”, “MS PMincho”, serif;
+    box-sizing: border-box;
+    line-height: 32px;
+}
+
+a{
+    text-decoration: none;
+}
+
+/*header
+-----------------------*/
+header{
+    position: fixed;
+    background-color: $color1;
+    width: 100%;
+    height: 80px;
+    z-index: 5;
+    -webkit-transition: .3s;
+    transition: .3s;
+    h2::before{
+        content: "";
+        display: inline-block;
+        width: 34px;
+        height: 34px;
+        background: url("../images/logo02.png") top left/cover no-repeat;
+        margin-right: 10px;
+        z-index: 6;
+    }
+    .top{
+        color: $color3;
+    }
+}
+.header-container{
+    display: flex;
+    height: 100%;
+}
+
+.left-header{
+    display: flex;
+    padding-top: 20px;
+    padding-left: 20px;
+    @include sp{
+        display: block;
+        padding-top: 5px;
+        padding-left: 5px;
+    }
+    h2{
+        font-size: 28px;
+        color: $color3;
+        padding-left: 20px;
+        height: 34px;
+        
+    }
+    ul{
+        display: flex;
+        margin-left: 120px;
+        @include tb{
+            margin-left: 60px;
+            }
+            @include sp{
+                margin-left: 10px;
+            }
+        li{
+            margin-right: 30px;
+            line-height: 40px;
+            @include tb{
+                margin-right: 15px;
+            }
+            @include tb{
+                margin-right: 15px;
+            }
+        }
+        li:last-of-type{
+            margin-right: 0;
+        }
+        a{
+            color: $color3;
+        }
+    }
+}
+.right-header{
+    margin-top: 13px;
+    margin-bottom: 13px;
+    position: absolute;
+    right: 0;
+    padding-right: 20px;
+    @include sp{
+        padding-right: 3px;
+    }
+
+    .btn-a{
+        display: flex;
+        padding: 16px 37px;
+        background-color: $color2;
+        cursor: pointer;
+        @include sp{
+            padding: 5px 8px;
+        }
+
+        img{
+            display: inline-block;
+            width: 22px;
+            height: 22px;
+            padding-right: 10px;
+        }
+        p{
+            line-height: 22px;
+            color: $color1;
+        }
+    }
+}
+/*modalArea
+------------------*/
+.modalArea {
+    visibility: hidden; /* displayではなくvisibility */
+    opacity : 0;
+    position: fixed;
+    z-index: 10; /* サイトによってここの数値は調整 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: .4s;
+  }
+
+  .modalBg {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(30,30,30,0.9);
+  }
+
+  .modalWrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%);
+    width: 70%;
+    max-width: 500px;
+    padding: 10px 30px;
+    background-color: #fff;
+  }
+  .modalContents{
+      h1{
+          font-size: 20px;
+          padding-top: 19px;
+          padding-bottom: 30px;
+          text-align: center;
+          border-bottom: 1px solid $color6;
+          @include tb{
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+      }
+      p{
+          padding-top: 14px;
+          padding-bottom: 14px;
+          @include tb{
+            padding-top: 2px;
+            padding-bottom: 2px;
+        }
+          &:first-of-type{
+              padding-top: 35.5px;
+              @include tb{
+                padding-top: 2px;
+            }
+          }
+      }
+      input{
+          display: inline-block;
+          width: 99%;
+          line-height: 24px;
+      }
+      select{
+        display: inline-block;
+        width: 100%;
+        height: 30px;
+        padding: 0 4px;
+      }
+      .submit{
+          text-align: center;
+          margin-bottom: 90px;
+          @include tb{
+            margin-bottom: 20px;
+        }
+      }
+      a{
+          @include btn;
+          padding: 13px 67px;
+          margin-top: 64px;
+          color: $color3;
+          margin-left: auto;
+          margin-right: auto;
+          @include tb{
+            margin-top: 10px;
+            padding: 5px 11px;
+        }
+      }
+  }
+ 
+      
+
+  .closeModal {
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    cursor: pointer;
+  }
+
+  /*modal表示
+  -----------------*/
+  .is-show { /* モーダル表示用クラス */
+    visibility: visible;
+    opacity : 1;
+  }
+
+  /*fv
+  ----------------*/
+  .fv{
+      background-image: url(../images/onsen-header.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 580px;
+      width: 100%;
+      h2{
+          font-size: 34px;
+          color: $color1;
+          position: absolute;
+          top: 50%;
+            left: 50%;
+            transform: translateY(-50%) translateX(-50%);
+          }
+  }
+
+  /*breadCrumb
+  -----------------*/
+  .breadCrumb{
+    padding-top: 36px;
+    padding-bottom: 98px;
+    ul{
+      display: flex;
+    }
+    li{
+        margin-right: 10px;;
+    }
+    a{
+        color: $color3;
+    }
+    li:nth-child(2)::before{
+      content: ">";
+      margin-right: 10px;
+    }
+}
+
+
+  /*spring-content
+  ------------------*/
+  .spring-wrapper{
+    max-width: 1180px;
+    margin: 0 auto;
+    height: 1500px;
+    @include tb{
+        max-width: 100%;
+        padding: 0 5px;
+    }
+    h3{
+        font-size: 16px;
+        text-align: center;
+    }
+    .spring1{
+        margin-top: 78px;
+        position: relative;
+        img{
+            position: absolute;
+            z-index: 4;
+            @include tb{
+                width: 40%;
+            }
+            @include sp{
+                width: 100%;
+                height: 100px;
+                object-fit: cover;
+            }
+        }
+
+        .room-feature1{
+            position: absolute;
+            left: 367px;
+            top: 57px;
+            width: 813px;
+            height: 381px;
+            background-image: url(../images/bg.jpg);
+            z-index: 0;
+            @include tb{
+                left: 200px;
+                width: 70%;
+            }
+            @include sp{
+                left: 0;
+                top: 100px;
+                width:100%;
+            }
+            h4{
+                font-size: 24px;
+                padding-top: 60px;
+                padding-left: 238px;
+                @include tb{
+                    padding-left: 220px;
+                }
+                @include sp{
+                    padding-left: 5px;
+                    padding-top: 30px;
+                }
+            }
+            h5{
+                font-size: 16px;
+                padding-top: 52px;
+                padding-left: 238px;
+                @include tb{
+                    padding-left: 220px;
+                    padding-top: 30px;
+                }
+                @include sp{
+                    padding-left: 5px;
+                    padding-top: 10px;
+                }
+            }
+            
+        }
+    }
+    .spring2{
+        position: relative;
+        .img2{
+            position: absolute;
+            right: 0;
+            top: 522px;
+            z-index: 4;
+            @include tb{
+                width: 40%;
+            }
+            @include sp{
+                width: 100%;
+                height: 100px;
+                object-fit: cover;
+            }
+        }
+        .room-feature2{
+          position: absolute;
+          left: 0;
+          top: 579px;
+          width: 813px;
+          height: 381px;
+          background-image: url(../images/bg.jpg);
+          z-index: 0;
+          @include tb{
+            width: 70%;
+        }
+        @include sp{
+            width: 100%;
+        }
+          h4{
+              font-size: 24px;
+              padding-left: 60px;
+              padding-top: 60px;
+              @include tb{
+                padding-left: 20px;
+            }
+            @include sp{
+                padding-left: 5px;
+            }
+          }
+          h5{
+              font-size: 16px;
+              padding-left: 60px;
+              padding-top: 52px;
+              @include tb{
+                padding-left: 20px;
+                padding-right: 90px;
+            }
+            @include sp{
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+          }
+        }
+
+    }
+    
+}
+
+/*effect
+-------------------*/
+.effect{
+    height: 500px;
+    @include sp{
+        height: 550px;
+    }
+    .effect-wrapper{
+        max-width: 1180px;
+        margin: 0 auto;
+        border-top: 1px solid $color6;
+        border-bottom: 1px solid $color6;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        @include tb{
+            padding-top: 25px;
+            padding-bottom: 25px;
+        }
+        h3{
+            font-size: 26px;
+            text-align: center;
+            padding-bottom: 65px;
+            @include tb{
+                padding-bottom: 30px;
+            }
+        }
+        .table{
+            width: 80%;
+            margin: 0 auto;
+            th{
+                font-size: 15px;
+                text-align: left;
+                padding: 15px 0;
+                border-top: 1px solid $color6;
+            }
+            .th1{
+                width: 220px;
+                @include sp{
+                    width: 30%;
+                }
+            }
+            
+        }
+    }
+}
+
+  /*company
+  --------------------*/
+  .company{
+    position: static;
+    height: 522px;
+    background-image: url(../images/bg3.jpg);
+    .logo{
+        @include logo;
+    }
+    h2{
+        @include title;
+    }
+    .link{
+        display: flex;
+        justify-content: center;
+        padding-top: 64px;
+        p{
+            padding-right: 23px;
+            -ms-writing-mode: tb-rl;
+            writing-mode: vertical-rl;
+            &:last-of-type{
+                padding-right: 0;
+            }
+        }
+        a{
+            font-size: 18px;
+            color: $color3;
+        }
+    }
+    .address{
+        padding-top: 72px;
+        display: flex;
+        justify-content: center;
+        p{
+            padding-right: 21px;
+            &:last-of-type{
+                padding-right: 0;
+            }
+        }
+    }
+    .number{
+        padding-top: 23px;
+        display: flex;
+        justify-content: center;
+        p{
+            padding-right: 21px;
+            &:last-of-type{
+                padding-right: 0;
+            }
+        }
+    }
+}
+/*footer
+----------------*/
+footer{
+    height: 60px;
+    background-color: $color3;
+    p{
+        color: $color1;
+        text-align: center;
+        padding-top: 15px;
+        font-size: 12px;
+    }
+}
+  

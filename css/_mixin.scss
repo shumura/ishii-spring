@@ -1,0 +1,19 @@
+/*mixin*/
+
+@mixin btn{
+    display: inline-block;
+    padding: 20px 44px;
+    border: 1px solid $color4;
+    margin-top: 75px;
+}
+
+@mixin title{
+    text-align: center;
+    padding-top: 20px;
+    font-size: 32px;
+}
+
+@mixin logo{
+    text-align: center;
+    padding-top: 60px;
+}
